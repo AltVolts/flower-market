@@ -24,68 +24,68 @@ export default function Settings() {
   }
 
   return (
-    <div>
-      <h1 className="text-2xl font-heading font-bold mb-6">Настройки</h1>
+    <div className="animate-fade-in">
+      <h1 className="text-3xl font-heading font-bold mb-8 text-warm">Настройки</h1>
 
       <form onSubmit={handleSubmit} className="max-w-2xl">
-        <div className="bg-white rounded-lg shadow-md p-6 space-y-4">
+        <div className="bg-surface rounded-3xl shadow-soft p-8 space-y-6">
           <div>
-            <label className="block text-warm mb-2">Название магазина</label>
+            <label className="block text-warm font-medium mb-2">Название магазина</label>
             <input
               type="text"
               value={settings.store_name}
               onChange={(e) => setSettings({...settings, store_name: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input"
             />
           </div>
           <div>
-            <label className="block text-warm mb-2">Слоган</label>
+            <label className="block text-warm font-medium mb-2">Слоган</label>
             <input
               type="text"
               value={settings.slogan}
               onChange={(e) => setSettings({...settings, slogan: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input"
             />
           </div>
           <div>
-            <label className="block text-warm mb-2">Телефон</label>
+            <label className="block text-warm font-medium mb-2">Телефон</label>
             <input
               type="tel"
               value={settings.phone}
               onChange={(e) => setSettings({...settings, phone: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input"
             />
           </div>
           <div>
-            <label className="block text-warm mb-2">Адрес</label>
+            <label className="block text-warm font-medium mb-2">Адрес</label>
             <input
               type="text"
               value={settings.address}
               onChange={(e) => setSettings({...settings, address: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input"
             />
           </div>
           <div>
-            <label className="block text-warm mb-2">Время работы</label>
+            <label className="block text-warm font-medium mb-2">Время работы</label>
             <input
               type="text"
               value={settings.work_hours}
               onChange={(e) => setSettings({...settings, work_hours: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input"
             />
           </div>
           <div>
-            <label className="block text-warm mb-2">О нас</label>
+            <label className="block text-warm font-medium mb-2">О нас</label>
             <textarea
               value={settings.about}
               onChange={(e) => setSettings({...settings, about: e.target.value})}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="input resize-none"
               rows={4}
             />
           </div>
           <button
             type="submit"
-            className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark"
+            className="btn-primary"
           >
             Сохранить
           </button>

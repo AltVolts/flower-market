@@ -42,22 +42,22 @@ export default function Categories() {
   }
 
   const CategoryModal = () => (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
-        <h2 className="text-xl font-heading font-bold mb-4">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
+      <div className="bg-surface rounded-3xl p-8 w-full max-w-md shadow-medium">
+        <h2 className="text-2xl font-heading font-bold mb-6 text-warm">
           {editingCategory ? 'Редактировать категорию' : 'Добавить категорию'}
         </h2>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Название" value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
-            className="w-full mb-3 px-3 py-2 border rounded" required />
+            className="input mb-4" required />
           <input type="number" placeholder="Порядок" value={formData.sort_order}
             onChange={(e) => setFormData({...formData, sort_order: parseInt(e.target.value)})}
-            className="w-full mb-3 px-3 py-2 border rounded" />
-          <div className="flex gap-2">
-            <button type="submit" className="bg-primary text-white px-4 py-2 rounded">Сохранить</button>
+            className="input mb-6" />
+          <div className="flex gap-3">
+            <button type="submit" className="btn-primary flex-1">Сохранить</button>
             <button type="button" onClick={() => { setShowModal(false); setEditingCategory(null); }}
-              className="bg-gray-300 px-4 py-2 rounded">Отмена</button>
+              className="px-6 py-3 rounded-xl border border-gray-200 text-warm hover:bg-cream transition-colors">Отмена</button>
           </div>
         </form>
       </div>
@@ -65,34 +65,34 @@ export default function Categories() {
   )
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-heading font-bold">Категории</h1>
+    <div className="animate-fade-in">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-heading font-bold text-warm">Категории</h1>
         <button onClick={() => setShowModal(true)}
-          className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">
+          className="btn-primary">
           + Добавить категорию
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-surface rounded-3xl shadow-soft overflow-hidden">
         <table className="w-full">
-          <thead className="bg-cream">
+          <thead className="bg-cream/50">
             <tr>
-              <th className="p-4 text-left">Название</th>
-              <th className="p-4 text-left">Порядок</th>
-              <th className="p-4 text-left">Действия</th>
+              <th className="p-5 text-left font-heading font-semibold text-warm">Название</th>
+              <th className="p-5 text-left font-heading font-semibold text-warm">Порядок</th>
+              <th className="p-5 text-left font-heading font-semibold text-warm">Действия</th>
             </tr>
           </thead>
           <tbody>
             {categories.map((category) => (
-              <tr key={category.id} className="border-t">
-                <td className="p-4">{category.name}</td>
-                <td className="p-4">{category.sort_order}</td>
-                <td className="p-4">
+              <tr key={category.id} className="border-t border-gray-100 hover:bg-cream/30 transition-colors">
+                <td className="p-5 font-medium text-warm">{category.name}</td>
+                <td className="p-5 text-warm-light">{category.sort_order}</td>
+                <td className="p-5">
                   <button onClick={() => handleEdit(category)}
-                    className="text-primary hover:underline mr-2">Ред.</button>
+                    className="text-primary-dark hover:underline mr-3 font-medium">Ред.</button>
                   <button onClick={() => handleDelete(category.id)}
-                    className="text-red-500 hover:underline">Удалить</button>
+                    className="text-red-400 hover:text-red-600 font-medium">Удалить</button>
                 </td>
               </tr>
             ))}

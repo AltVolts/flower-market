@@ -16,25 +16,29 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-cream flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-heading font-bold text-center mb-6 text-primary-dark">
-          Админ-панель
-        </h1>
+    <div className="min-h-screen bg-cream flex items-center justify-center animate-fade-in">
+      <div className="bg-surface p-10 rounded-3xl shadow-soft w-96">
+        <div className="text-center mb-8">
+          <span className="text-5xl block mb-4">🌸</span>
+          <h1 className="text-2xl font-heading font-bold text-warm">
+            Админ-панель
+          </h1>
+          <p className="text-warm-light mt-2">Цветы Марий Эл</p>
+        </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-warm mb-2">Пароль</label>
+          <div className="mb-6">
+            <label className="block text-warm font-medium mb-2">Пароль</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+              className="input"
               placeholder="Введите пароль"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary-dark transition"
+            className="btn-primary w-full"
           >
             Войти
           </button>

@@ -19,20 +19,35 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div>
-      <h1 className="text-2xl font-heading font-bold mb-6">Главная</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-warm">Всего заказов</h3>
-          <p className="text-3xl font-bold text-primary-dark">{stats.totalOrders}</p>
+    <div className="animate-fade-in">
+      <h1 className="text-3xl font-heading font-bold mb-8 text-warm">Главная</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="bg-surface p-8 rounded-3xl shadow-soft">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-warm-light mb-2">Всего заказов</p>
+              <p className="text-4xl font-bold text-warm">{stats.totalOrders}</p>
+            </div>
+            <span className="text-4xl">📦</span>
+          </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-warm">Новых заказов</h3>
-          <p className="text-3xl font-bold text-yellow-600">{stats.newOrders}</p>
+        <div className="bg-surface p-8 rounded-3xl shadow-soft">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-warm-light mb-2">Новых заказов</p>
+              <p className="text-4xl font-bold text-primary-dark">{stats.newOrders}</p>
+            </div>
+            <span className="text-4xl">🆕</span>
+          </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-warm">Выполнено</h3>
-          <p className="text-3xl font-bold text-green-600">{stats.completedOrders}</p>
+        <div className="bg-surface p-8 rounded-3xl shadow-soft">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-warm-light mb-2">Выполнено</p>
+              <p className="text-4xl font-bold text-secondary-dark">{stats.completedOrders}</p>
+            </div>
+            <span className="text-4xl">✅</span>
+          </div>
         </div>
       </div>
     </div>

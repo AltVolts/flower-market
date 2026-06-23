@@ -20,18 +20,21 @@ function App() {
         <Routes>
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin/*" element={
-            <div className="flex">
-              <aside className="w-64 bg-primary-dark text-white min-h-screen p-4">
-                <h2 className="text-xl font-heading mb-6">Админ-панель</h2>
-                <nav className="space-y-2">
-                  <a href="/admin" className="block p-2 hover:bg-primary rounded">Главная</a>
-                  <a href="/admin/products" className="block p-2 hover:bg-primary rounded">Товары</a>
-                  <a href="/admin/categories" className="block p-2 hover:bg-primary rounded">Категории</a>
-                  <a href="/admin/orders" className="block p-2 hover:bg-primary rounded">Заказы</a>
-                  <a href="/admin/settings" className="block p-2 hover:bg-primary rounded">Настройки</a>
+            <div className="flex min-h-screen bg-cream">
+              <aside className="w-64 bg-warm text-cream min-h-screen p-6">
+                <a href="/" className="flex items-center space-x-2 mb-8">
+                  <span className="text-2xl">🌸</span>
+                  <span className="font-heading font-bold">Админ</span>
+                </a>
+                <nav className="space-y-1">
+                  <a href="/admin" className="block px-4 py-3 rounded-xl hover:bg-warm-light/20 transition-colors">Главная</a>
+                  <a href="/admin/products" className="block px-4 py-3 rounded-xl hover:bg-warm-light/20 transition-colors">Товары</a>
+                  <a href="/admin/categories" className="block px-4 py-3 rounded-xl hover:bg-warm-light/20 transition-colors">Категории</a>
+                  <a href="/admin/orders" className="block px-4 py-3 rounded-xl hover:bg-warm-light/20 transition-colors">Заказы</a>
+                  <a href="/admin/settings" className="block px-4 py-3 rounded-xl hover:bg-warm-light/20 transition-colors">Настройки</a>
                 </nav>
               </aside>
-              <main className="flex-1 p-6">
+              <main className="flex-1 p-8">
                 <Routes>
                   <Route path="/admin" element={<Dashboard />} />
                   <Route path="/admin/products" element={<Products />} />

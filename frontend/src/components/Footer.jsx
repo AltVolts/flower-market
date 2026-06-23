@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-cream/20 mt-8 pt-6 text-center text-cream/60 text-sm">
-          © 2024 Цветы Марий Эл. Все права защищены.
+          © 2024 Цветы Марий Эл. Все права защищены. <a href="/admin/login" className="hover:text-cream/80 transition-colors">⚙</a>
         </div>
       </div>
     </footer>
