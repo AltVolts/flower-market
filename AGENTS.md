@@ -57,7 +57,7 @@ Pydantic v2 style (`model_dump()`, `from_attributes = True`). CORS is wide open 
 - Tailwind config adds custom colors (`primary`, `cream`, `warm`) and font families (`heading`, `body`).
 - No state library — all data fetched via `frontend/src/api/client.js` using plain `fetch`.
 - API base URL configured via `VITE_API_URL` env var (defaults to `/api` for local dev with Vite proxy).
-- SPA routing: `frontend/public/_redirects` for Render static site.
+- SPA routing: `404.html` copy of `index.html` for Render static site (see Gotchas).
 
 ## Gotchas
 
@@ -67,6 +67,7 @@ Pydantic v2 style (`model_dump()`, `from_attributes = True`). CORS is wide open 
 - `SiteSettings` router accepts raw `dict` input (not a Pydantic model) — unusual pattern.
 - The root `package-lock.json` is empty (lockfileVersion 3 with no packages). Ignore it.
 - `docker-compose` does not exist — only a `Dockerfile` in `backend/`.
+- **Render static sites don't support Rewrite rules** — only Redirect (returns empty body). SPA routing solved via `404.html` as copy of `index.html`. Build script: `vite build && cp dist/index.html dist/404.html`
 
 ## Deployment
 
