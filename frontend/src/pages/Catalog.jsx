@@ -27,30 +27,35 @@ export default function Catalog() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-heading font-bold mb-8 text-primary-dark">Каталог</h1>
+    <div className="bg-cream min-h-screen animate-fade-in">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-heading font-bold mb-10 text-warm">Каталог</h1>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        <aside className="w-full md:w-64">
-          <CategoryFilter
-            categories={categories}
-            selected={selectedCategory ? Number(selectedCategory) : null}
-            onSelect={handleCategorySelect}
-          />
-        </aside>
+        <div className="flex flex-col lg:flex-row gap-10">
+          <aside className="w-full lg:w-72">
+            <CategoryFilter
+              categories={categories}
+              selected={selectedCategory ? Number(selectedCategory) : null}
+              onSelect={handleCategorySelect}
+            />
+          </aside>
 
-        <div className="flex-1">
-          {products.length === 0 ? (
-            <div className="text-center py-12 text-warm">
-              Товары не найдены
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+          <div className="flex-1">
+            {products.length === 0 ? (
+              <div className="text-center py-20">
+                <span className="text-6xl mb-4 block">🔍</span>
+                <p className="text-warm-light text-xl">Товары не найдены</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                {products.map((product, index) => (
+                  <div key={product.id} className="animate-slide-up" style={{ animationDelay: `${index * 0.05}s` }}>
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
