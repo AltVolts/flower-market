@@ -6,7 +6,7 @@
 
 - **Фронтенд:** React 18, Tailwind CSS
 - **Бэкенд:** FastAPI, SQLAlchemy, SQLite
-- **Деплой:** Render (фронтенд + бэкенд)
+- **Деплой:** Vercel (фронтенд), Render (бэкенд)
 
 ## Запуск локально
 
@@ -35,10 +35,21 @@ yarn dev
 
 ## Деплой
 
-### Render (оба сервиса)
+### Render (бэкенд)
 
 1. Создайте аккаунт на render.com
-2. Создайте Web Service для бэкенда (Docker) и Static Site для фронтенда
-3. Настройте переменные окружения:
-   - Бэкенд: `FRONTEND_URL` = URL фронтенда
-   - Фронтенд: `VITE_API_URL` = URL бэкенда + `/api`
+2. Создайте новый Web Service
+3. Подключите GitHub репозиторий
+4. Настройте:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+### Vercel (фронтенд)
+
+1. Создайте аккаунт на vercel.com
+2. Импортируйте GitHub репозиторий
+3. Настройте:
+   - Framework Preset: Vite
+   - Root Directory: `frontend`
+   - Build Command: `yarn build`
+   - Output Directory: `dist`
